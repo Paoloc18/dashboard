@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Scenario summary</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+  :root { --bg: #f2f4f7; --surface: #ffffff; --line: #e5e8ee; --ink: #1b2130; --ink2: #667085; --accent: #2563eb; --accent-soft: #eaf0fe; --accent-ink: #1d4ed8; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Inter', -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif; color: var(--ink); background: var(--bg); margin: 0; padding: 36px clamp(20px, 4vw, 48px) 64px; }
+  header, section { max-width: 1000px; margin: 0 auto 26px; }
+  .eyebrow { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin: 0 0 8px; }
+  h1 { font-size: 26px; margin: 0 0 4px; }  h2 { font-size: 15px; margin: 0 0 10px; }
+  .sub { color: var(--ink2); font-size: 13px; margin: 0; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 18px; }
+  table { border-collapse: collapse; width: 100%; font-size: 13px; }
+  th { text-align: left; font-weight: 600; color: var(--ink2); font-size: 12px; }
+  td, th { padding: 6px 10px 6px 0; border-bottom: 1px solid var(--line); vertical-align: top; }  tr:last-child td { border-bottom: none; }
+  .num { text-align: right; font-variant-numeric: tabular-nums; }  th.num { text-align: right; }
+  .mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; }
+  .muted { color: var(--ink2); }  .ok { color: #12805c; }  .warn { color: #b54708; font-weight: 600; }
+  .chip { display: inline-block; margin: 0 8px 8px 0; padding: 4px 11px; border-radius: 999px; font-size: 12.5px; }
+  .chip.on { background: var(--accent-soft); color: var(--accent-ink); font-weight: 600; }
+  .chip.off { background: #eef0f3; color: #98a2b3; text-decoration: line-through; }
+  .grid { display: grid; grid-template-columns: 1fr 2fr; gap: 16px; }
+</style></head>
+<body>
+  <header>
+    <p class="eyebrow">Scenario inputs</p>
+    <h1>1_baseline</h1>
+    <p class="sub">Run of 27/10/2026 12:04. Costs in M$.</p>
+  </header>
+  <section class="grid">
+    <div class="card"><h2>Objective</h2><table><tr><td>Transition cost</td><td class="num">2,190,670</td></tr><tr><td>CAPEX</td><td class="num">1,457,138</td></tr><tr><td>OPEX</td><td class="num">733,497</td></tr><tr><td>C_material</td><td class="num">34</td></tr></table></div>
+    <div class="card"><h2>Climate constraint and carbon capture [kt CO2-eq/yr]</h2>
+      <table><tr><th>Year</th><th class="num">Emissions</th><th class="num">Limit</th><th class="num">CO2 captured</th></tr><tr><td>2025</td><td class="num">57,407</td><td class="num">no limit</td><td class="num">0</td></tr><tr><td>2030</td><td class="num">46,978</td><td class="num">no limit</td><td class="num">424</td></tr><tr><td>2035</td><td class="num">37,816</td><td class="num">37,816</td><td class="num">2,674</td></tr><tr><td>2040</td><td class="num">37,816</td><td class="num">37,816</td><td class="num">3,065</td></tr><tr><td>2045</td><td class="num">37,816</td><td class="num">37,816</td><td class="num">2,195</td></tr><tr><td>2050</td><td class="num">0</td><td class="num">0</td><td class="num">8,410</td></tr></table></div>
+  </section>
+  <section class="card"><h2>Model parts loaded</h2><span class="chip on">Recycling rates (materials_recycling)</span><span class="chip off">Recycling costs in the objective (materials_recycling_cost)</span><span class="chip off">Annual material limits (materials_limit)</span><span class="chip on">PV / wind sub-technologies</span><span class="chip off">Fixed market shares between sub-technologies</span><span class="chip off">Competing recycling processes</span></section>
+  <section class="card"><h2>Material data sets</h2>
+    <table><tr><th>Data</th><th>Content</th><th>Sources (values)</th><th>File</th><th>Edited</th></tr><tr><td>Material intensities</td><td>84,532 values, 296 technologies, 41 materials</td><td>Bieuville et al. 2025 (MI_Vehicles_2 + MS_Battery_Motor_LDV) (43,050)<br>Månberger & Stenqvist 2018 (MI_Vehicles_Public + MS_Battery_Motor_LDV) (24,108)<br>Bieuville et al. 2025 (MI_Energy) (14,924)<br>Watari et al. 2019 / Fishman et al. 2018 (MI_Vehicles) (2,450)</td><td class="mono">Material_intensity.dat</td><td><span class="ok">before the run</span></td></tr><tr><td>Recycling rates</td><td>88,914 values, 333 technologies, 41 materials</td><td>RR_Global (material-level rate) (79,814)<br>technology-specific mapping (vehicles, wind, PV) (9,100)</td><td class="mono">Material_recycling.dat</td><td><span class="ok">before the run</span></td></tr><tr><td>Annual limits</td><td colspan="4" class="muted">not loaded in this run</td></tr></table></section>
+  <section class="card"><h2>Other model files</h2><table><tr><td class="mono">Constraints.mod</td><td><span class="ok">before the run</span></td></tr><tr><td class="mono">PES_data_pathway.dat</td><td><span class="ok">before the run</span></td></tr><tr><td class="mono">PES_main.mod</td><td><span class="ok">before the run</span></td></tr><tr><td class="mono">PES_scenarios.mod</td><td><span class="ok">before the run</span></td></tr></table></section>
+</body></html>
