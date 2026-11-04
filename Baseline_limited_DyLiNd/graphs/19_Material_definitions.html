@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Definitions</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+  :root {
+    --bg: #f2f4f7; --surface: #ffffff; --line: #e5e8ee;
+    --ink: #1b2130; --ink2: #667085; --ink3: #98a2b3;
+    --accent: #2563eb; --accent-soft: #eaf0fe; --accent-ink: #1d4ed8;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+    color: var(--ink); background: var(--bg); margin: 0;
+    padding: 36px clamp(20px, 4vw, 48px) 64px;
+  }
+  header { max-width: 920px; margin: 0 auto 30px; }
+  .eyebrow {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px;
+    font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--accent); margin: 0 0 8px;
+  }
+  h1 { font-size: 24px; font-weight: 700; letter-spacing: -.01em; margin: 0; }
+
+  section { max-width: 920px; margin: 0 auto 8px; }
+  h2 {
+    font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .09em;
+    color: var(--ink3); margin: 36px 0 14px; padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .list {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+    overflow: hidden;
+  }
+  .row { padding: 16px 20px; border-bottom: 1px solid var(--line); }
+  .row:last-child { border-bottom: none; }
+  .row-head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 12px; margin-bottom: 4px;
+  }
+  .row h3 {
+    font-size: 14.5px; font-weight: 600; color: var(--accent-ink); margin: 0;
+    line-height: 1.3;
+  }
+  .row .unit {
+    flex-shrink: 0; font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 11px; font-weight: 500; color: var(--accent-ink);
+    background: var(--accent-soft); border-radius: 5px; padding: 2px 7px;
+    white-space: nowrap;
+  }
+  .row p { color: var(--ink2); font-size: 13px; line-height: 1.55; margin: 0; max-width: 68ch; }
+</style></head>
+<body>
+  <header>
+    <p class="eyebrow">Materials dashboard</p>
+    <h1>Definitions</h1>
+  </header>
+  
+    <section>
+      <h2>Dashboard terms</h2>
+      <div class="list">
+      <div class="row">
+        <div class="row-head">
+          <h3>Gross demand</h3>
+          <span class="unit">[t/yr]</span>
+        </div>
+        <p>Material demand from newly-installed capacity that period</p>
+      </div>
+      <div class="row">
+        <div class="row-head">
+          <h3>Demand after recycling</h3>
+          <span class="unit">[t/yr]</span>
+        </div>
+        <p>Gross demand minus that period's own Recycled_material</p>
+      </div>
+      <div class="row">
+        <div class="row-head">
+          <h3>Old / Decommissioned material</h3>
+          <span class="unit">[t/yr]</span>
+        </div>
+        <p>Material from a technology that reaches end-of-life or is decommissioned that period -- the quantity available for recycling</p>
+      </div>
+      <div class="row">
+        <div class="row-head">
+          <h3>Recycled material</h3>
+          <span class="unit">[t/yr]</span>
+        </div>
+        <p>Decommissioned material that is collected and treated, available to manufacture new technologies in Quebec that same period.</p>
+      </div>
+      <div class="row">
+        <div class="row-head">
+          <h3>Disposed material</h3>
+          <span class="unit">[t/yr]</span>
+        </div>
+        <p>Decommissioned material sent to landfill or incineration in Quebec instead of being recycled</p>
+      </div>
+      <div class="row">
+        <div class="row-head">
+          <h3>Material stock</h3>
+          <span class="unit">[t]</span>
+        </div>
+        <p>Surplus of recycled material not needed against that period's gross demand -- banked, available for later use in the horizon.</p>
+      </div>
+      <div class="row">
+        <div class="row-head">
+          <h3>Net demand</h3>
+          <span class="unit">[t/yr]</span>
+        </div>
+        <p>Demand after use of recycled and stocked material</p>
+      </div>
+      <div class="row">
+        <div class="row-head">
+          <h3>Limit closeness</h3>
+          <span class="unit">%</span>
+        </div>
+        <p>How close Net demand is to the imposed material-availability limit for that year.</p>
+      </div>
+      <div class="row">
+        <div class="row-head">
+          <h3>Material impacts</h3>
+          <span class="unit">[kt CO2-eq/yr]</span>
+        </div>
+        <p>Environmental impact of the material flows and the impact avoided due to recycling</p>
+      </div>
+      </div>
+    </section>
+</body></html>
